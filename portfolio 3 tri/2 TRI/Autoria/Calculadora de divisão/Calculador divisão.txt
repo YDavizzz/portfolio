@@ -1,0 +1,20 @@
+function realizarDivisao(dividendo, divisor) {
+  const divisaoNormal = dividendo / divisor;
+  const divisaoInteira = Math.floor(dividendo / divisor);
+  const restoDivisao = dividendo % divisor;
+  
+  const resultado = {
+    divisaoNormal,
+    divisaoInteira,
+    restoDivisao
+  };
+  
+  return resultado;
+}
+
+// Exemplo de uso:
+const dividendo = 16;
+const divisor = 3;
+
+const resultadoDivisao = realizarDivisao(dividendo, divisor);
+console.log(resultadoDivisao);

@@ -1,0 +1,30 @@
+function getAnagrams(word) {
+   Função auxiliar para obter todas as permutações de uma string
+  function permute(str, prefix = '', result = []) {
+    if (str.length === 0) {
+      result.push(prefix);
+      return result;
+    }
+
+    for (let i = 0; i  str.length; i++) {
+      const char = str[i];
+      const remainingChars = str.slice(0, i) + str.slice(i + 1);
+      permute(remainingChars, prefix + char, result);
+    }
+
+    return result;
+  }
+
+   Obter todas as permutações da palavra fornecida
+  const permutations = permute(word);
+
+   Filtrar as permutações para manter apenas as que são diferentes da palavra original
+  const anagrams = permutations.filter(permutation = permutation !== word);
+
+  return anagrams;
+}
+
+ Exemplo de uso
+const inputWord = 'node';
+const result = getAnagrams(inputWord);
+console.log(result);
